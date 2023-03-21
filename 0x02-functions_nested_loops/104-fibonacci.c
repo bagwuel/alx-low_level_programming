@@ -9,22 +9,22 @@
 
 int main(void)
 {
-	unsigned int num1;
-	unsigned int num2;
-	int fib;
+	unsigned long num1;
+	unsigned long num2;
+	unsigned long fib;
 	int i;
 
 	num1 = 1;
 	num2 = 2;
 	i = 0;
-	printf("%u, %u", num1, num2);
+	printf("%lu, %lu", num1, num2);
 	while (i < 98 - 2)
 	{
 		printf(", ");
 		fib = num1 + num2;
 		num1 = num2;
 		num2 = fib;
-		printf("%u", fib);
+		printf("%lu", fib);
 		i++;
 	}
 	printf("\n");
