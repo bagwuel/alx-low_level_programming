@@ -15,12 +15,12 @@ int main(void)
 
 	num1 = 1;
 	num2 = 2;
-	sum = num1 + num2;
+	sum = 2;
 	fib = 0;
-	while (fib <= 4000000)
+	while (sum <= 4000000)
 	{
 		fib = num1 + num2;
-		if (fib < 4000000)
+		if (fib % 2 == 0)
 			sum += fib;
 		num1 = num2;
 		num2 = fib;
