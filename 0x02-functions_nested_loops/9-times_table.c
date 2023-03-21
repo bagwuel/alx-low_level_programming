@@ -19,6 +19,7 @@ void times_table(void)
 		{
 			rslt = row * col;
 			_putchar(',');
+			_putchar(' ');
 			if (rslt / 10 == 0)
 				_putchar(' ');
 			else
