@@ -19,7 +19,7 @@ int main(void)
 		num /= 2;
 	}
 	i = 3;
-	while (i <= num / 2)
+		while (i <= num / 3)
 	{
 		while (num % i == 0)
 		{
@@ -28,6 +28,8 @@ int main(void)
 		}
 		i += 2;
 	}
+	if (num > 2)
+		lp_fact = num;
 	printf("%ld\n", lp_fact);
 	return (0);
 }
