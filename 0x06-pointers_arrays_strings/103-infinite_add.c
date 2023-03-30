@@ -37,42 +37,35 @@ void rev_str(char *str, int len)
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i = 0, j = 0, k = 0, temp = 0, m1, m2;
+	int i = 0, j = 0, k = 0, temp = 0, sum;
 
 	temp = 0;
 	while (n1[i] != '\0')
 		i++;
 	while (n2[j] != '\0')
 		j++;
+	if (i > size_r || j > size_r)
+		return (0);
 	i--;
 	j--;
-	while (i >= 0 || j >= 0)
+	while (k < size_r - 1)
 	{
-		m1 = n1[i] - 48;
-		m2 = n2[j] - 48;
-		if (i >= 0 && j >= 0)
-		{
-			r[k] = (m1 + m2 + temp) % 10 + 48;
-			temp = (m1 + m2 + temp) / 10;
-		}
-		if (i < 0)
-		{
-			r[k] = (m2 + temp) % 10 + 48;
-			temp = (m2 + temp) / 10;
-		}
-		if (j < 0)
-		{
-			r[k] = (m1 + temp) % 10 + 48;
-			temp = (m1 + temp) / 10;
-		}
-		if (k == size_r - 2)
-			return (0);
+		sum = temp;
+		if (i >= 0)
+			sum += n1[i] - 48;
+		if (j >= 0)
+			sum += n2[j] - 48;
+		if (i < 0 && j < 0 && temp == 0)
+			break;
+		r[k] = sum % 10 + 48;
+		temp = sum / 10;
 		i--;
 		j--;
 		k++;
 	}
-	r[k] = temp + 48;
-	r[k + 1] = '\0';
-	rev_str(r, k + 1);
+	r[k] = '\0';
+	if (i >= 0 || j >= 0 || temp)
+		return (0);
+	rev_str(r, k);
 	return (r);
 }
