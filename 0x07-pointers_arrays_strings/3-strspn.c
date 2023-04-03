@@ -1,34 +1,22 @@
 #include "main.h"
 
 /**
- * has_all - checks if a string has all the letters of another string
- * @s: main string
- * @n: length of main string
- * @sb: substring
+ * has_char - checks if a string has all the letters of another string
+ * @s: string to be checked
+ * @c: cahracter to be checked
  *
  * Return: 1 if true, 0 otherwise.
  */
 
-int has_all(char *s, int n, char *sb)
+int has_char(char *s, char c)
 {
-	int i;
-	int j;
-
-	i = 0;
-	while (sb[i] != '\0')
+	while (*s)
 	{
-		j = 0;
-		while (j < n)
-		{
-			if (s[j] == sb[i])
-				break;
-			j++;
-		}
-		if (j == n)
-			return (0);
-		i++;
+		if (*s == c)
+			return (1);
+		s++;
 	}
-	return (1);
+	return (0);
 }
 
 /**
@@ -42,16 +30,25 @@ int has_all(char *s, int n, char *sb)
 
 unsigned int _strspn(char *s, char *accept)
 {
-	int acc_len;
+	int n;
 
-	acc_len = 0;
-	while (accept[acc_len] != '\0')
-		acc_len++;
-	while (s[acc_len] != '\0')
+	n = 0;
+	while (*s)
 	{
-		if (has_all(s, acc_len, accept))
+		if (has_char(accept, *s))
+		{
+			n++;
+			s++;
 			break;
-		acc_len++;
+		}
+		s++;
 	}
-	return (acc_len);
+	while (*s)
+	{
+		if (!has_char(accept, *s))
+			break;
+		n++;
+		s++;
+	}
+	return (n);
 }
