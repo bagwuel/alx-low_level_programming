@@ -1,25 +1,6 @@
 #include "main.h"
 
 /**
- * has_char - checks if a string has all the letters of another string
- * @s: string to be checked
- * @c: cahracter to be checked
- *
- * Return: 1 if true, 0 otherwise.
- */
-
-int has_char(char *s, char c)
-{
-	while (*s)
-	{
-		if (*s == c)
-			return (1);
-		s++;
-	}
-	return (0);
-}
-
-/**
  * _strspn - gets the length of a prefix substring
  * @s: main string
  * @accept: substring
@@ -31,23 +12,40 @@ int has_char(char *s, char c)
 unsigned int _strspn(char *s, char *accept)
 {
 	int n;
+	int i;
 
 	n = 0;
 	while (*s)
 	{
-		if (has_char(accept, *s))
+		i = 0;
+		while (accept[i] != '\0')
 		{
-			n++;
-			s++;
-			break;
+			if (accept[i] == *s)
+			{
+				n++;
+				s++;
+				break;
+			}
+			i++;
 		}
+		if (accept[i] != '\0')
+			break;
 		s++;
 	}
 	while (*s)
 	{
-		if (!has_char(accept, *s))
+		i = 0;
+		while (accept[i] != '\0')
+		{
+			if (accept[i] == *s)
+			{
+				n++;
+				break;
+			}
+			i++;
+		}
+		if (accept[i] == '\0')
 			break;
-		n++;
 		s++;
 	}
 	return (n);
