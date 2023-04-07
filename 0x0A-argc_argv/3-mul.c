@@ -10,7 +10,7 @@
  * Return: 1 if argc is not 3, 0 otherwise
  */
 
-int main(int argc, char * argv[])
+int main(int argc, char *argv[])
 {
 	int a, b;
 

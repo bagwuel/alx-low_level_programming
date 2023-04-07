@@ -11,7 +11,7 @@
  * Return: 1 if argv contains non digits, 0 otherwise
  */
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int i;
 	int j;
@@ -37,7 +37,7 @@ int main (int argc, char *argv[])
 			j++;
 		}
 		sum += atoi(argv[i]);
-		i++;		
+		i++;
 	}
 	printf("%d\n", sum);
 	return (0);
