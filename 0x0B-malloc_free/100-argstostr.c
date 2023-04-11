@@ -11,7 +11,7 @@
  * pointer to new string otherwise
  */
 
- char *argstostr(int ac, char **av)
+char *argstostr(int ac, char **av)
 {
 	int i;
 	int j;
