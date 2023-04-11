@@ -22,14 +22,16 @@ char *str_concat(char *s1, char *s2)
 		i++;
 	while (s2 != NULL && s2[j])
 		j++;
-	p = malloc(sizeof(char) * (i + j + 1));
+	p = malloc(sizeof(char) * (i + j) + 1);
 	if (!p)
 		return (NULL);
 	i = 0;
-	while (*s1)
-		*(p + i++) = *s1++;
-	while (*s2)
-		*(p + i++) = *s2++;
+	if (s1 != NULL)
+		while (*s1)
+			*(p + i++) = *s1++;
+	if (s2 != NULL)
+		while (*s2)
+			*(p + i++) = *s2++;
 	*(p + i) = '\0';
 	return (p);
 }
