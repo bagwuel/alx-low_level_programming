@@ -69,18 +69,18 @@ int wordcounter(char *str)
 
 char **strtow(char *str)
 {
-	int i, j, words, char_counter;
+	int i = 0, j = 0, words, char_counter;
 	char **p;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
 	words = wordcounter(str);
+	if (words == 0)
+		return (NULL);
 	p = malloc(sizeof(char *) * (words + 1));
 	if (!p)
 		return (NULL);
 	*(p + (words + 1)) = NULL;
-	j = 0;
-	i = 0;
 	while (j < words)
 	{
 		while (str[i])
