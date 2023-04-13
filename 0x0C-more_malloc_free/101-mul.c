@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stddef.h>
-#include <stdio.h>
 #include <string.h>
 
 /**
@@ -10,7 +9,13 @@
 
 void error(void)
 {
-	printf("Error\n");
+	int i;
+	char *err = "Error";
+
+	i = 0;
+	while (err[i])
+		_putchar(err[i++]);
+	_putchar('\n');
 	exit(98);
 }
 
@@ -162,6 +167,8 @@ int main(int argc, char *argv[])
 			error();
 		j++;
 	}
+	if (i == 0 || j == 0)
+		error();
 	mem = i + j + 1;
 	p = malloc(mem);
 	if (!p)
@@ -169,7 +176,10 @@ int main(int argc, char *argv[])
 	p = _multiply(p, s1, s2, i, j);
 	if (!p)
 		return (1);
-	printf("%s\n", p);
+	i = 0;
+	while (p[i])
+		_putchar(p[i++]);
+	_putchar('\n');
 	free(p);
 	return (0);
 }
