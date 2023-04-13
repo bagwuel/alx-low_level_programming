@@ -5,10 +5,10 @@
 /**
  * _realloc - reallocates a memory block using malloc and free
  * @ptr: pointer to old memory
- * old_size: size of ptr
+ * @old_size: size of ptr
  * @new_size: size of new memory
  *
- * Return: NULL if new_size is 0; ptr if new_size = old_size;
+ * Return: NULL if new_size is 0, ptr if new_size = old_size;
  * pointer to new allocation otherwise
  */
 
