@@ -16,10 +16,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int i = 0, j = 0, mem = 0;
 	char *p;
 
-
-	while (s1[i] && s1)
+	if (s1 == NULL && s2 == NULL)
+		return (NULL);
+	while (s1 && s1[i])
 		i++;
-	while (s2[j] && s2)
+	while (s2 && s2[j])
 		j++;
 	mem = i + n + 1;
 	if (n >= j)
@@ -28,11 +29,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (!p)
 		return (NULL);
 	i = 0;
-	while (*s1 && s1)
-		p[i++] = *s1++;
+	if (s1)
+		while (*s1)
+			p[i++] = *s1++;
 	j = 0;
-	while ((s2[j] && s2) && j < n)
-		p[i++] = s2[j++];
+	if (s2)
+		while (s2[j] && j < n)
+			p[i++] = s2[j++];
 	p[i] = '\0';
 	return (p);
 }
