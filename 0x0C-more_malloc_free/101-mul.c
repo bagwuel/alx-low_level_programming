@@ -139,6 +139,20 @@ char *_multiply(char *p, char *s1, char *s2, int l1, int l2)
 }
 
 /**
+ * isnegative - checks if a number is negative
+ * @s: number to be checked
+ *
+ * Return: s if positive; s + 1 if negative
+ */
+
+char *isnegative(char *s)
+{
+	if (*s == '-')
+		return (++s);
+	return (s);
+}
+
+/**
  * main - prints the result of multiplication of two numbers
  * @argc: length of argv array
  * @argv: input vector
@@ -149,12 +163,16 @@ char *_multiply(char *p, char *s1, char *s2, int l1, int l2)
 int main(int argc, char *argv[])
 {
 	char *s1, *s2, *p;
-	int i = 0, j = 0, mem = 0;
+	int i = 0, j = 0, mem = 0, sign = 1;
 
 	if (argc != 3)
 		error();
-	s1 = argv[1];
-	s2 = argv[2];
+	if (argv[1][0] == '-')
+		sign *= -1;
+	if (argv[2][0] == '-')
+		sign *= -1;
+	s1 = isnegative(argv[1]);
+	s2 = isnegative(argv[2]);
 	while (s1[i])
 	{
 		if (s1[i] < '0' || s1[i] > '9')
@@ -177,6 +195,8 @@ int main(int argc, char *argv[])
 	if (!p)
 		return (1);
 	i = 0;
+	if (sign == -1)
+		_putchar('-');
 	while (p[i])
 		_putchar(p[i++]);
 	_putchar('\n');
