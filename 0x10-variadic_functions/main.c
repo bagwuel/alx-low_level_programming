@@ -1,5 +1,4 @@
 #include "variadic_functions.h"
-#include <stdio.h>
 
 /**
  * main - check the code
@@ -8,6 +7,6 @@
  */
 int main(void)
 {
-    print_strings(", ", 2, "", "Django");
+    print_all("ceis", 'B', 3, "stSchool");
     return (0);
 }
