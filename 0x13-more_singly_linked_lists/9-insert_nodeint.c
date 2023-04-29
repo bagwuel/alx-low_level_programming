@@ -60,10 +60,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *new_node;
 
 	len = listint_len(*head);
-	if (idx >= len)
+	if (idx >= len || head == NULL)
 		return (NULL);
 	if (idx == 0)
-		add_nodeint(head, n);
+		return (add_nodeint(head, n));
 	while (i < idx - 1)
 	{
 		temp = temp->next;
