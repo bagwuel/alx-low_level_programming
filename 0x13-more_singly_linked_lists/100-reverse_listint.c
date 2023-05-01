@@ -1,28 +1,6 @@
 #include "lists.h"
 
 /**
- * listint_len - returns the number of elements in a linked listint_t list.
- * @h: pointer to head element
- *
- * Return: number of elements in a linked list
- */
-
-size_t listint_len(const listint_t *h)
-{
-	size_t len = 0;
-	const listint_t *temp = h;
-
-	if (h == NULL)
-		return (len);
-	while (temp != NULL)
-	{
-		temp = temp->next;
-		len++;
-	}
-	return (len);
-}
-
-/**
  * reverse_listint -  reverses a listint_t linked list.
  * @head: pointer to head node
  *
@@ -34,7 +12,7 @@ listint_t *reverse_listint(listint_t **head)
 	listint_t *prev_node = *head;
 	listint_t *next_node;
 
-	if (*head == NULL || listint_len(*head) == 1)
+	if (*head == NULL || (*head)->next == NULL)
 		return (*head);
 	next_node = prev_node->next;
 	*head = NULL;
