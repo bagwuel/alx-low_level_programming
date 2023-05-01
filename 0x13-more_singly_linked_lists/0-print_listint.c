@@ -12,7 +12,7 @@ size_t print_listint(const listint_t *h)
 	size_t i = 0;
 	const listint_t *temp = h;
 
-	if (head == NULL)
+	if (h == NULL)
 	{
 		printf("\n");
 		return (i);
